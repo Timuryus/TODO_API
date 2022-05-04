@@ -2,7 +2,7 @@ const $email = document.querySelector(".email");
 const $password = document.querySelector(".password");
 const $userName = document.querySelector(".username");
 const $submit = document.querySelector(".submit");
-const Base = "http://nuranov29.pythonanywhere.com";
+const Base = "http://nuranov29.pythonanywhere.com/api";
 
 $submit.addEventListener("click", (e) => {
   e.preventDefault();
@@ -26,11 +26,12 @@ $submit.addEventListener("click", (e) => {
     }
   } else {
     getLogin();
+    window.open("./auth.html", "_self");
   }
 });
 
 function getLogin() {
-  fetch(`${Base}/api/user/`, {
+  fetch(`${Base}/user`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
